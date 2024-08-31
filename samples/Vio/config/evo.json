@@ -1,0 +1,95 @@
+{
+  "video0": "cam0.mp4",
+  "video1": "cam1.mp4",
+  "times": "timestamps.txt",
+  "imu": "imu.txt",
+  "time_scale": 1.0,
+  "acc_scale": 9.74412,
+
+  "gyro_noise_density": 1.6968e-3,
+  "gyro_random_walk":  1.9393e-4,
+  "acc_noise_density": 2.0e-3,
+  "acc_random_walk":  3.0e-3,
+  "gyro_range": 6.28,
+  "acc_range": 80,
+  "gyro_bias": [0.00121440145708, 0.0237255695193, 0.0383463239038],
+  "acc_bias": [-0.00137516, 0.343585, 0.014777],
+
+  "prior_inverse_depth": 1,
+  "prior_inverse_depth_sigma": 1,
+  "min_inverse_depth": 0.05,
+  "max_inverse_depth": 10.0,
+
+  "feature_tracker": {
+    "max_corners": 200,
+    "radius": 15,
+    "detector": "fast",
+    "fast_threshold": 10,
+    "border": 21,
+    "pyramid_levels": 3,
+    "use_imu": false
+  },
+
+  "initialize": {
+    "max_corners": 200,
+    "radius": 15,
+    "start_aligment_frame_num": 15,
+    "border": 21
+  },
+
+  "sliding_window_size": 20,
+  "num_instate_features": 50,
+  "use_unit_sphere_error": true,
+  "use_one_point_ransac": true,
+  "use_oos_features": false,
+
+  "cameras": [
+    {
+      "id": 0,
+      "width": 600,
+      "height": 600,
+      "fx": 185.43129,
+      "fy": 185.43129,
+      "cx": 299.50601,
+      "cy": 299.41299,
+      "fov_angle": 180,
+      "radius": 270,
+
+      "dist_coeffs": [-0.0940349, 0.106822, -0.0497141, 0.00689083],
+      "model_type": "opencv_fisheye",
+
+      "T_I_C": [
+        0.04025772559113108, -0.005454354628477439, 0.9991744442503429, 0.06275309313914829,
+        -0.9980968025542417, 0.04653054507027812, 0.04046830450209276, 0.07736462923367293,
+        -0.0467128545692744, -0.9989019729966077, -0.003570755829946448, 0.05183000101929829,
+        0, 0, 0, 1
+      ],
+
+      "focal_baseline": 50.37
+    },
+
+    {
+      "id": 1,
+      "width": 600,
+      "height": 600,
+      "fx": 184.1259,
+      "fy": 184.1259,
+      "cx": 302.06201,
+      "cy": 300.73499,
+      "fov_angle": 150,
+      "radius": 270,
+
+      "dist_coeffs": [-0.0940349, 0.106822, -0.0497141, 0.00689083],
+      "model_type": "opencv_fisheye",
+
+      "T_I_C": [
+        0.0047,    -0.0062,    1.0000,    0.0669,
+        -0.9998,    0.0174,    0.0048,    0.0094,
+        -0.0175,   -0.9998,   -0.0061,    0.0498,
+        0,         0,         0,    1.0000
+      ],
+
+      "focal_baseline": 50.37
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "video0": "cam0.mp4",
+  "video1": "cam1.mp4",
+  "times": "timestamps.txt",
+  "imu": "imu.txt",
+  "time_scale": 1.0,
+  "acc_scale": 9.81,
+
+  "gyro_noise_density": 1.6968e-3,
+  "gyro_random_walk":  1.9393e-4,
+  "acc_noise_density": 2.0e-2,
+  "acc_random_walk":  3.0e-3,
+  "gyro_range": 6.28,
+  "acc_range": 80,
+  "gyro_bias": [-0.00028954, -0.00231929, -0.00052667],
+  "acc_bias": [-0.00991446,  0.00429505,  0.00282816],
+
+  "prior_inverse_depth": 1,
+  "prior_inverse_depth_sigma": 1,
+  "min_inverse_depth": 0.01,
+  "max_inverse_depth": 2.0,
+
+  "feature_tracker": {
+    "max_corners": 300,
+    "radius": 15,
+    "detector": "fast",
+    "fast_threshold": 10,
+    "border": 21,
+    "pyramid_levels": 3,
+    "use_imu": false
+  },
+
+  "initialize": {
+    "max_corners": 400,
+    "radius": 15,
+    "start_aligment_frame_num": 15,
+    "border": 21
+  },
+
+  "sliding_window_size": 20,
+  "num_instate_features": 80,
+  "use_unit_sphere_error": false,
+  "use_one_point_ransac": true,
+  "use_oos_features": true,
+
+  "cameras": [
+    {
+      "id": 0,
+      "width": 960,
+      "height": 540,
+      "fx": 572.0417244452209,
+      "fy": 572.0417244452209,
+      "cx": 479.5,
+      "cy":  269.5,
+      "fov_angle": 120,
+      "radius": 400,
+
+      "dist_coeffs": [0, 0, 0, 0],
+      "model_type": "perspective",
+
+      "T_I_C": [
+        -0.0212974,  0.00210681,   -0.999771, 0,
+        0.999703,   0.0119078,  -0.0212709, 0,
+        0.0118603,   -0.999927, -0.00235979, 0,
+        0, 0, 0, 1
+      ],
+
+      "focal_baseline": 50.37
+    }
+  ]
+}

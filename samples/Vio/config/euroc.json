@@ -1,0 +1,94 @@
+{
+  "video0": "cam0/data",
+  "video1": "cam1/data",
+  "times": "timestamps.txt",
+  "imu": "imu0/data.csv",
+  "time_scale": 1.0e-9,
+  "acc_scale": 1.0,
+
+  "gyro_noise_density": 1.6968e-3,
+  "gyro_random_walk":  1.9393e-4,
+  "acc_noise_density": 2.0e-3,
+  "acc_random_walk":  3.0e-3,
+  "gyro_range": 6.28,
+  "acc_range": 80,
+  "gyro_bias": [-0.002153, 0.020744, 0.075806],
+  "acc_bias": [-0.013337, 0.103464, 0.093086],
+  "acc_bias_for_V1_01_easy":  [-0.012492, 0.547666, 0.069073],
+
+  "prior_inverse_depth": 1,
+  "prior_inverse_depth_sigma": 1,
+  "min_inverse_depth": 0.05,
+  "max_inverse_depth": 10.0,
+
+  "feature_tracker": {
+    "max_corners": 200,
+    "radius": 15,
+    "detector": "fast",
+    "fast_threshold": 10,
+    "border": 21,
+    "pyramid_levels": 3,
+    "use_imu": false
+  },
+
+  "initialize": {
+    "max_corners": 200,
+    "radius": 15,
+    "start_aligment_frame_num": 15,
+    "border": 21
+  },
+
+  "sliding_window_size": 20,
+  "num_instate_features": 50,
+  "use_unit_sphere_error": false,
+  "use_one_point_ransac": false,
+  "use_oos_features": false,
+
+  "cameras": [
+    {
+      "id": 0,
+      "width": 752,
+      "height": 480,
+      "fx": 458.654,
+      "fy": 457.296,
+      "cx": 367.215,
+      "cy": 248.375,
+      "fov_angle": 120,
+
+      "dist_coeffs": [-0.28340811, 0.07395907, 0.00019359, 1.76187114e-05],
+      "model_type": "perspective",
+
+      "T_I_C": [
+        0.0148655429818, -0.999880929698, 0.00414029679422, -0.0216401454975,
+        0.999557249008, 0.0149672133247, 0.025715529948, -0.064676986768,
+        -0.0257744366974, 0.00375618835797, 0.999660727178, 0.00981073058949,
+        0.0, 0.0, 0.0, 1.0
+      ],
+
+      "focal_baseline": 50.37
+    },
+
+    {
+      "id": 1,
+      "width": 752,
+      "height": 480,
+      "fx": 457.587,
+      "fy": 456.134,
+      "cx": 379.999,
+      "cy": 255.238,
+      "fov_angle": 120,
+
+      "dist_coeffs": [-0.28368365,  0.07451284, -0.00010473, -3.55590700e-05],
+      "model_type": "perspective",
+
+      "T_I_C": [
+        0.0125552670891, -0.999755099723, 0.0182237714554, -0.0198435579556,
+        0.999598781151, 0.0130119051815, 0.0251588363115, 0.0453689425024,
+        -0.0253898008918, 0.0179005838253, 0.999517347078, 0.00786212447038,
+        0.0, 0.0, 0.0, 1.0
+      ],
+
+      "focal_baseline": 50.37
+    }
+  ]
+}
