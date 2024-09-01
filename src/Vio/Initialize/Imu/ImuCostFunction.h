@@ -6,7 +6,7 @@
 
 #include "Vio/Initialize/Imu/Imu.h"
 
-namespace inslam {
+namespace hybrid_msckf {
 // parameters: [rvi, ti] [vi, bgi, bai] [rvj, tj] [vj, bgj, baj]
 // residual: [dtheta dv dp dbg dba]
 class ImuCost : public ceres::SizedCostFunction<15, 6, 9, 6, 9> {
@@ -1085,5 +1085,5 @@ private:
     Eigen::Matrix<double, 6, 6> sqrt_info_;
 };
 
-}  // namespace inslam
+}  // namespace hybrid_msckf
 #endif

@@ -2,7 +2,7 @@
 #include <opencv2/opencv.hpp>
 #include "Vio/Initialize/InitTypes.hpp"
 
-namespace inslam {
+namespace hybrid_msckf {
 class PoseInitialization {
 public:
     PoseInitialization(const std::shared_ptr<Map>& map);

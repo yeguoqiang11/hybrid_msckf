@@ -7,7 +7,7 @@
 
 using namespace std;
 
-namespace inslam {
+namespace hybrid_msckf {
 
 AttitudeFilter::AttitudeFilter(const Eigen::Vector3d &gyroBias, const Eigen::Vector3d &accBias)
         : bg_(gyroBias), ba_(accBias) {
@@ -131,4 +131,4 @@ Eigen::Vector3d AttitudeFilter::GetEulerAngles() {
     return {roll, pitch, yaw};
 }
 
-} // namespace inslam
+} // namespace hybrid_msckf

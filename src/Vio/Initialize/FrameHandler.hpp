@@ -9,7 +9,7 @@
 #include "Vio/Initialize/Imu/ImuAligment.h"
 #include "Imu/ImuCalibration.h"
 
-namespace inslam {
+namespace hybrid_msckf {
 enum InitTrackState { NOT_START = 0, NOT_INITIALIZED = 1, INITIALIZED = 2, TRACKING_LOST = 3 };
 enum UpdateResult { RESULT_NO_KEYFRAME, RESULT_IS_KEYFRAME, RESULT_FAILURE };
 
@@ -127,4 +127,4 @@ private:
     std::vector<FramePtr> frameDataset_;
 };
 
-} //namespace inslam
+} //namespace hybrid_msckf

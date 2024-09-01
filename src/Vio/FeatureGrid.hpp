@@ -11,7 +11,7 @@
 #include <opencv2/opencv.hpp>
 #include "Vio/FeatureObservation.h"
 
-namespace inslam {
+namespace hybrid_msckf {
 
 class FeatureGrid {
 public:
@@ -139,4 +139,4 @@ private:
     std::vector<bool> gridOccupancyMask_;
 };
 
-}//namespace inslam {
+}//namespace hybrid_msckf {

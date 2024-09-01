@@ -1,7 +1,7 @@
 #pragma once
 #include <opencv2/opencv.hpp>
 
-namespace inslam {
+namespace hybrid_msckf {
 float EssentialError(const cv::Point3f &spherePt1, const cv::Point3f &spherePt2, const cv::Mat &E);
 
 void RansacEssentialAndPnP(const std::vector<cv::Point3f> &spherePts1,
@@ -64,4 +64,4 @@ void FindRTByEssentialAndPnP(const std::vector<cv::Point3f> &spherePts1,
                              cv::Mat &R,
                              cv::Mat &_t,
                              float threshold);
-}  // namespace inslam
+}  // namespace hybrid_msckf

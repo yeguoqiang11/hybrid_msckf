@@ -10,7 +10,7 @@
 #include <sstream>
 #include <memory>
 
-namespace inslam {
+namespace hybrid_msckf {
 
 class VideoProvider {
 public:
@@ -64,4 +64,4 @@ private:
 
 };
 
-}//namespace inslam {
+}//namespace hybrid_msckf {

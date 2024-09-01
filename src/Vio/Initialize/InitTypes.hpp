@@ -3,7 +3,7 @@
 #include <opencv2/opencv.hpp>
 #include "Vio/Initialize/Imu/Imu.h"
 
-namespace inslam {
+namespace hybrid_msckf {
 
 struct Feature {
     int featureID;
@@ -90,4 +90,4 @@ public:
 typedef std::shared_ptr<Map> MapPtr;
 
 
-} // namespace inslam
+} // namespace hybrid_msckf

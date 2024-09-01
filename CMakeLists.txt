@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(inslam)
+project(hybrid_msckf)
 
 set(CMAKE_CONFIGURATION_TYPES Release RelWithDebInfo CACHE STRING INTERNAL FORCE)
 set(CMAKE_CXX_STANDARD 11)
@@ -41,7 +41,7 @@ find_package(Ceres REQUIRED)
 find_package(Pangolin REQUIRED)
 
 #src
-add_subdirectory_with_folder("inslam" src)
+add_subdirectory_with_folder("hybrid_msckf" src)
 
 #samples
 if (WITH_SAMPLES)

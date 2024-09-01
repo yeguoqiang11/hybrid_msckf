@@ -8,7 +8,7 @@
 
 using namespace Eigen;
 
-namespace inslam {
+namespace hybrid_msckf {
 
 double MathUtil::PoseToYaw(const Eigen::Matrix4d &pose) {
     const Eigen::Matrix3d R = pose.topLeftCorner<3, 3>();
@@ -402,4 +402,4 @@ bool MathUtil::SolveMonotonicPolynomial(const std::vector<double> &coeffs, doubl
     return false;
 }
 
-}//namespace inslam {
+}//namespace hybrid_msckf {

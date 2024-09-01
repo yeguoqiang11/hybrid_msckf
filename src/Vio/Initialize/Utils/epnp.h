@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include <opencv2/opencv.hpp>
-namespace inslam {
+namespace hybrid_msckf {
 namespace pnp {
 
 class EPNPSolver {
@@ -82,4 +82,4 @@ private:
     int ransacInliersCount_;
 };
 }  // namespace pnp
-}  // namespace inslam
+}  // namespace hybrid_msckf

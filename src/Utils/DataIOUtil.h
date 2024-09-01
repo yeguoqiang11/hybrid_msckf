@@ -11,7 +11,7 @@
 #include <vector>
 #include <map>
 
-namespace inslam {
+namespace hybrid_msckf {
 
 struct LidarInfo {
     double minAngle;
@@ -83,4 +83,4 @@ public:
 
 };
 
-}//namespace inslam {
+}//namespace hybrid_msckf {

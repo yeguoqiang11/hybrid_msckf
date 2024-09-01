@@ -8,7 +8,7 @@
 
 using namespace std;
 
-namespace inslam {
+namespace hybrid_msckf {
 
 bool DataIOUtil::ReadScanHeader(ifstream &ifs, LidarInfo &lidarInfo) {
     string oneLine, s;
@@ -388,4 +388,4 @@ bool DataIOUtil::ParseDatasetConfig(const string &configFile, DatasetConfig &dc)
     return true;
 }
 
-}//namespace inslam {
+}//namespace hybrid_msckf {

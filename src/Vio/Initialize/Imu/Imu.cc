@@ -1,6 +1,6 @@
 #include "Vio/Initialize/Imu/Imu.h"
 
-namespace inslam {
+namespace hybrid_msckf {
 
 inline Eigen::Matrix3d RotationVector2Matrix3d(Eigen::Vector3d rvec) {
     double theta = rvec.norm();
@@ -171,4 +171,4 @@ double Preintegrated::GetMoveAccStd() {
     return sum;
 }
 
-}  // namespace inslam
+}  // namespace hybrid_msckf

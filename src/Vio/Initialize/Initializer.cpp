@@ -4,7 +4,7 @@
 #include <ceres/cost_function.h>
 #include <ceres/problem.h>
 
-namespace inslam {
+namespace hybrid_msckf {
 Initializer::Initializer(const nlohmann::json &config, std::shared_ptr<Caimura> leftCaim,
                          std::shared_ptr<Caimura> rightCaim) {
     map_ = std::make_shared<Map>();
@@ -104,5 +104,5 @@ void Initializer::SaveSlamPose(const std::string &path,
     frameHandler_->SaveSlamPose(path, T_G_C0, T_C_I);
 }
 
-} // namespace inslam
+} // namespace hybrid_msckf
 

@@ -1,7 +1,7 @@
 #include "Vio/Initialize/Imu/LinearAlignment.h"
 
 
-namespace inslam {
+namespace hybrid_msckf {
 
 static Vector3d Gravity = Vector3d(0, 0, 9.81);
 

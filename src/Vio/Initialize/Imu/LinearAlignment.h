@@ -9,7 +9,7 @@
 using namespace Eigen;
 using namespace std;
 
-namespace inslam {
+namespace hybrid_msckf {
 
 bool IMUAlignmentByLinear(std::vector<VisualInertialState> &allFrameState, Vector3d &bg, Vector3d &g,
                         VectorXd &x, const Eigen::Matrix3d &Rcb, const Vector3d &tcb);

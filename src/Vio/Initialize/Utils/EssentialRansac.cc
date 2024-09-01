@@ -1,7 +1,7 @@
 #include "Vio/Initialize/Utils/EssentialRansac.h"
 #include "Vio/Initialize/Utils/Triangulation.h"
 
-namespace inslam {
+namespace hybrid_msckf {
 
     // P2 = RP1+t
 int InliersCount(const std::vector<cv::Point3f> &spherePts1,

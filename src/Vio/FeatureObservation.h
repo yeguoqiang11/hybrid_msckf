@@ -10,7 +10,7 @@
 
 #define NUM_CAMS
 
-namespace inslam {
+namespace hybrid_msckf {
 
 struct FeatureObservation {
     FeatureObservation() : stereoDepth(-1), isStereo(false) {}
@@ -26,5 +26,5 @@ struct FeatureObservation {
     bool isStereo;
 };
 
-} // namespace inslam
+} // namespace hybrid_msckf
 

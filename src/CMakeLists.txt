@@ -88,20 +88,20 @@ set(ALL_SRC
 )
 source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${ALL_SRC})
 
-add_library(inslam STATIC ${ALL_SRC})
+add_library(hybrid_msckf STATIC ${ALL_SRC})
 
-set(INSLAM_INC 
+set(hybrid_msckf_INC 
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/../include 
 )
 
-target_include_directories(inslam PUBLIC 
-    "$<BUILD_INTERFACE:${INSLAM_INC}>"
+target_include_directories(hybrid_msckf PUBLIC 
+    "$<BUILD_INTERFACE:${hybrid_msckf_INC}>"
     "$<INSTALL_INTERFACE:include>"
 )
 
-target_include_directories(inslam PRIVATE ${OpenCV_INCLUDE_DIRS} ${CERES_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIR})
-target_link_libraries(inslam PRIVATE ${OpenCV_LIBS} ${CERES_LIBRARIES} pangolin)
+target_include_directories(hybrid_msckf PRIVATE ${OpenCV_INCLUDE_DIRS} ${CERES_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIR})
+target_link_libraries(hybrid_msckf PRIVATE ${OpenCV_LIBS} ${CERES_LIBRARIES} pangolin)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/../cmake/inslamInstall.cmake)
+include(${CMAKE_CURRENT_SOURCE_DIR}/../cmake/hybrid_msckfInstall.cmake)
 

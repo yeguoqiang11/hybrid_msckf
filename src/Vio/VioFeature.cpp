@@ -7,7 +7,7 @@ using namespace std;
 using namespace cv;
 using namespace Eigen;
 
-namespace inslam {
+namespace hybrid_msckf {
 
 VioFeature::VioFeature(size_t id): id_{id}, isInState_(false), initialized_(false) {}
 
@@ -411,4 +411,4 @@ void VioFeature::SetAnchorFrame(size_t anchorFrameId, const std::shared_ptr<Caim
     anchorRay_ = obser.ray0;
 }
 
-}//namespace inslam {
+}//namespace hybrid_msckf {

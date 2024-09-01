@@ -18,7 +18,7 @@
 using namespace cv;
 using namespace std;
 using namespace Eigen;
-using namespace inslam;
+using namespace hybrid_msckf;
 
 void ReadImgTimes(const string &file, vector<double> &times);
 
@@ -26,7 +26,7 @@ void ReadImgTimes(const string &file, vector<double> &times);
 int main(int argc, const char * argv[]) {
     const string argKeys =
             "{dir | /home/d/Downloads/indoor_forward_3_snapdragon_with_gt/ | dataset directory path}"
-            "{config | /home/d/work/inslam/samples/Vio/config/uzh_fpv.json | config file path }";
+            "{config | /home/d/work/hybrid_msckf/samples/Vio/config/uzh_fpv.json | config file path }";
     cv::CommandLineParser parser(argc, argv, argKeys);
     const string dataset = parser.get<string>("dir");
     const string configFile = parser.get<string>("config");

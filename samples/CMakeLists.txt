@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(samples)
 
 include_directories(${EIGEN3_INCLUDE_DIR} ${OpenCV_INCLUDE_DIRS})
-link_libraries(pangolin inslam)
+link_libraries(pangolin hybrid_msckf)
 
 add_executable(MonoVioDemo  Vio/MonoVioDemo.cc)
 

@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <ceres/ceres.h>
 
-namespace inslam {
+namespace hybrid_msckf {
 static inline Eigen::Matrix3d VectorSkew(Eigen::Vector3d rvec) {
     Eigen::Matrix3d skew;
     skew << 0.0, -rvec[2], rvec[1], rvec[2], 0.0, -rvec[0], -rvec[1], rvec[0], 0.0;
@@ -448,4 +448,4 @@ void ImuCalibration::IntegrateGyroRK4(double dt, const Eigen::Vector3d &w0,
 }
 
 
-}  // namespace inslam
+}  // namespace hybrid_msckf

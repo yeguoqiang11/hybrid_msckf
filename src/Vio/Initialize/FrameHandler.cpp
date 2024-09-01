@@ -12,7 +12,7 @@
 #include <ceres/problem.h>
 
 
-namespace inslam {
+namespace hybrid_msckf {
 
 FrameHandler::FrameHandler(MapPtr map, const nlohmann::json &config, std::shared_ptr<Caimura> leftCaim,
                            std::shared_ptr<Caimura> rightCam) : map_(map), leftCam_(leftCaim),
@@ -26,7 +26,7 @@ FrameHandler::FrameHandler(MapPtr map, const nlohmann::json &config, std::shared
     lastKeyframeFeatureCount_ = 0;
     angularResolution_ = leftCam_->GetAngularResolution();
     state_ = NOT_START;
-    initilization_ = std::make_shared<inslam::PoseInitialization>(map_);
+    initilization_ = std::make_shared<hybrid_msckf::PoseInitialization>(map_);
     trackFailCnt_ = 0;
     R_ = cv::Mat::eye(3, 3, CV_64F);
     t_ = cv::Mat::zeros(3, 1, CV_64F);
@@ -509,7 +509,7 @@ bool FrameHandler::PnPIncrement() {
     if (observes.size() < 10) {
         return false;
     }
-    inslam::pnp::EPNPSolver epnpSolver;
+    hybrid_msckf::pnp::EPNPSolver epnpSolver;
     double reprojThreshold = 5 * leftCam_->GetAngularResolution();
     cv::Mat R, t;
     bool flag = epnpSolver.EPNPRansac(objects, observes, reprojThreshold, R, t, 30);
@@ -1049,4 +1049,4 @@ bool FrameHandler::TryCalibImu() {
 }
 
 
-} //namespace inslam
+} //namespace hybrid_msckf

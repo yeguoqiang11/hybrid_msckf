@@ -1,6 +1,6 @@
 #include "Triangulation.h"
 
-namespace inslam {
+namespace hybrid_msckf {
 
 /**
  *  A = [R*n1, -n2]

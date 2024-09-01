@@ -10,7 +10,7 @@
 #include "Vio/VioFeature.h"
 #include "Vio/FeatureObservation.h"
 
-namespace inslam {
+namespace hybrid_msckf {
 
 class MsckfVio {
 public:
@@ -152,4 +152,4 @@ private:
 
 };
 
-}//namespace inslam {
+}//namespace hybrid_msckf {

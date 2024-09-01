@@ -7,7 +7,7 @@
 #include "Vio/Initialize/InitTypes.hpp"
 #include "Vio/Initialize/FrameHandler.hpp"
 
-namespace inslam {
+namespace hybrid_msckf {
 
 class Initializer
 {
@@ -41,5 +41,5 @@ private:
     MapPtr map_;
 };
 
-} // namespace  inslam
+} // namespace  hybrid_msckf
 

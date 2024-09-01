@@ -8,7 +8,7 @@
 #include <Eigen/Dense>
 #include <opencv2/opencv.hpp>
 
-namespace inslam {
+namespace hybrid_msckf {
 
 class MathUtil {
 public:
@@ -87,5 +87,5 @@ public:
 
 };
 
-}//namespace inslam {
+}//namespace hybrid_msckf {
 

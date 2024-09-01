@@ -5,7 +5,7 @@
 #include <Eigen/Sparse>
 #include <opencv2/core/eigen.hpp>
 
-namespace inslam {
+namespace hybrid_msckf {
 namespace pnp {
 
 int EPNPSolver::Run(const std::vector<cv::Point3d> &objectPoints,
@@ -939,4 +939,4 @@ int EPNPSolver::GetRansacInlierCount() {
 }
 
 }  // namespace pnp
-}  // namespace inslam
+}  // namespace hybrid_msckf

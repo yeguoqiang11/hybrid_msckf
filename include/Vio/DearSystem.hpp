@@ -1,5 +1,5 @@
-#ifndef __INSLAM_VIO_DEARSYSTEM_H__
-#define __INSLAM_VIO_DEARSYSTEM_H__
+#ifndef __hybrid_msckf_VIO_DEARSYSTEM_H__
+#define __hybrid_msckf_VIO_DEARSYSTEM_H__
 
 #include <atomic>
 #include <memory>
@@ -9,7 +9,7 @@
 #include "Vio/Initialize/Initializer.hpp"
 #include "Vio/SlidingWindow.hpp"
 
-namespace inslam {
+namespace hybrid_msckf {
 
 class Caimura;
 class EkfVio;
@@ -96,6 +96,6 @@ private:
     std::atomic<bool> hasLatestImuState_{false};
 };
 
-}//namespace inslam {
+}//namespace hybrid_msckf {
 
-#endif//__INSLAM_VIO_DEARSYSTEM_H__
+#endif//__hybrid_msckf_VIO_DEARSYSTEM_H__

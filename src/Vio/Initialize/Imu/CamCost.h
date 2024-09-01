@@ -6,7 +6,7 @@
 #include <ceres/ceres.h>
 #include "Vio/Initialize/Imu/Imu.h"
 
-namespace inslam {
+namespace hybrid_msckf {
 // parameter: [R, t]
 // exp(theta0^) * exp(delta^) = exp((theta0 + invJr(theta0) * delta)^)
 class PerturbationPoseParameterization : public ceres::LocalParameterization {
@@ -695,5 +695,5 @@ private:
 };
 
 
-}  // namespace inslam
+}  // namespace hybrid_msckf
 #endif

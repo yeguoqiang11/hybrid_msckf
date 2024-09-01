@@ -1,7 +1,7 @@
 #pragma once
 #include <opencv2/opencv.hpp>
 
-namespace inslam {
+namespace hybrid_msckf {
 /*
  * compute depth, P2=RP1 + t
  * @param spherePts1: sphere feature points on first sphere

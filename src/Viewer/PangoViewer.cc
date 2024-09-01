@@ -6,7 +6,7 @@
 
 using namespace std;
 
-namespace inslam { namespace viewer {
+namespace hybrid_msckf { namespace viewer {
 
 shared_ptr<PangoViewer> PangoViewer::instance_ = nullptr;
 
@@ -767,6 +767,6 @@ void PangoViewer::GetBboxVertices(const BBoxInfo &bbox, std::vector<Eigen::Vecto
     }
 }
 
-}}//namespace inslam { namespace viewer {
+}}//namespace hybrid_msckf { namespace viewer {
 
 

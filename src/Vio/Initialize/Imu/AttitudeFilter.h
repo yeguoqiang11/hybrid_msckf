@@ -7,7 +7,7 @@
 #include <iostream>
 #include <Eigen/Dense>
 
-namespace inslam {
+namespace hybrid_msckf {
 
 class AttitudeFilter {
 public:
@@ -43,4 +43,4 @@ private:
     bool isInitialized_;
 };
 
-} // namespace inslam
+} // namespace hybrid_msckf

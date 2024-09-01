@@ -1,6 +1,6 @@
 #include "Vio/Initialize/InitTypes.hpp"
 
-namespace inslam {
+namespace hybrid_msckf {
 
 Frame::Frame() {
     time_ = -1;
@@ -227,4 +227,4 @@ const std::vector<FramePtr> &Map::GetKeyFrames() const {
 
 
 
-} // namespace inslam
+} // namespace hybrid_msckf

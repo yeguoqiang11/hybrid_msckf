@@ -7,7 +7,7 @@
 #include "Vio/Initialize/Imu/Imu.h"
 #include "Vio/Initialize/InitTypes.hpp"
 
-namespace inslam {
+namespace hybrid_msckf {
 class VisualInertialAligment {
 public:
     VisualInertialAligment() {
@@ -137,5 +137,5 @@ private:
     double imu_init_time_dif;
 };
 
-}  // namespace inslam
+}  // namespace hybrid_msckf
 #endif

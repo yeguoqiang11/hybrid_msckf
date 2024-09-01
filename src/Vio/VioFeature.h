@@ -9,7 +9,7 @@
 #include "Vio/Caimura.hpp"
 #include "Vio/FeatureObservation.h"
 
-namespace inslam {
+namespace hybrid_msckf {
 
 class VioFeature {
 public:
@@ -58,4 +58,4 @@ public:
     Eigen::Vector3d xw_;    // position in world frame
 };
 
-}//namespace inslam {
+}//namespace hybrid_msckf {

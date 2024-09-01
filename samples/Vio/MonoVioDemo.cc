@@ -19,13 +19,13 @@
 using namespace cv;
 using namespace std;
 using namespace Eigen;
-using namespace inslam;
+using namespace hybrid_msckf;
 
 
 int main(int argc, const char * argv[]) {
     const string argKeys =
             "{dir | D:/dataset/fpvdataset/vio/V1_02_medium/mav0/ | dataset directory path}"
-            "{config | D:/work/inslam/samples/Vio/config/euroc.json | config file path }";
+            "{config | D:/work/hybrid_msckf/samples/Vio/config/euroc.json | config file path }";
 
     cv::CommandLineParser parser(argc, argv, argKeys);
     const string dir = parser.get<string>("dir");

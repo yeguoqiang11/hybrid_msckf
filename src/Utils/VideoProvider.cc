@@ -6,7 +6,7 @@
 
 using namespace std;
 
-namespace inslam {
+namespace hybrid_msckf {
 
 VideoProvider::VideoProvider(const string &video_path,
                                           const string &times_path,
@@ -136,4 +136,4 @@ void VideoProvider::LoadTimestamps() {
     }
 }
 
-}//namespace inslam {
+}//namespace hybrid_msckf {

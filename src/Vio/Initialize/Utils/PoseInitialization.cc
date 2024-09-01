@@ -4,7 +4,7 @@
 #include "Vio/Initialize/Utils/EssentialRansac.h"
 #include "Vio/Initialize/Utils/Triangulation.h"
 
-namespace inslam {
+namespace hybrid_msckf {
 PoseInitialization::PoseInitialization(const std::shared_ptr<Map> &map) {
     map_ = map;
 }
@@ -188,4 +188,4 @@ bool PoseInitialization::RunStereo(std::vector<FramePtr> &initFrameList) {
 
     return true;
 }
-}  // namespace inslam
+}  // namespace hybrid_msckf

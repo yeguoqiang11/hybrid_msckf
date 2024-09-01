@@ -7,7 +7,7 @@
 #include <unordered_map>
 #include <ceres/ceres.h>
 
-namespace inslam {
+namespace hybrid_msckf {
 inline Eigen::Matrix3d VectorSkew(Eigen::Vector3d rvec) {
     Eigen::Matrix3d skew;
     skew << 0.0, -rvec[2], rvec[1], rvec[2], 0.0, -rvec[0], -rvec[1], rvec[0], 0.0;
@@ -634,4 +634,4 @@ void VisualInertialAligment::FrameTimeBasedResize(double time) {
     frame_dataset_.swap(used_frame);
 }
 
-}  // namespace inslam
+}  // namespace hybrid_msckf

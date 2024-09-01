@@ -9,7 +9,7 @@ using namespace Eigen;
 
 #define USE_UNIT_SPHERE_ERROR 1
 
-namespace inslam {
+namespace hybrid_msckf {
 
 const double MAHALA95_TABLE[] = {
         3.8415,    5.9915,    7.8147,    9.4877,   11.0705,   12.5916,   14.0671,   15.5073,   16.9190,   18.3070,
@@ -830,4 +830,4 @@ vector<Matrix4d> MsckfVio::QuerySlidingWindowPoses() {
     return poses;
 }
 
-}//namespace inslam {
+}//namespace hybrid_msckf {

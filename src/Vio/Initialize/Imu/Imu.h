@@ -5,7 +5,7 @@
 
 #include <Eigen/Core>
 
-namespace inslam {
+namespace hybrid_msckf {
 
 struct Preintegrated {
     Preintegrated() { Initialize(); }
@@ -60,5 +60,5 @@ struct VisualInertialState {
     bool fixed = false;
 };
 
-}  // namespace inslam
+}  // namespace hybrid_msckf
 #endif

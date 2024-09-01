@@ -13,7 +13,7 @@
 #include <atomic>
 #include <chrono>
 
-namespace inslam { namespace viewer {
+namespace hybrid_msckf { namespace viewer {
 
 #define MAX_POINTS_NUM 100000000
 #define MAX_VOXELS_NUM 3000000
@@ -230,5 +230,5 @@ private:
 
 };
 
-}}//namespace inslam { namespace viewer {
+}}//namespace hybrid_msckf { namespace viewer {
 

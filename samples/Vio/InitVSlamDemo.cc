@@ -16,7 +16,7 @@
 using namespace cv;
 using namespace std;
 using namespace Eigen;
-using namespace inslam;
+using namespace hybrid_msckf;
 
 void GetInitCamPoseInGravity(double t_img,
                              Matrix4d &T_G_C0,
@@ -65,7 +65,7 @@ void GetInitCamPoseInGravity(double t_img,
 int main(int argc, const char * argv[]) {
     const string argKeys =
             "{dir | /media/dd/F/DATA/evo/evo_0207_loop1/ | dataset directory path}"
-            "{config | /home/dd/work/inslam/samples/Vio/config/evo.json | config file path }"
+            "{config | /home/dd/work/hybrid_msckf/samples/Vio/config/evo.json | config file path }"
             "{slamPosePath | ./slamPose.txt | path to save slam pose}";
     cv::CommandLineParser parser(argc, argv, argKeys);
     const string dir = parser.get<string>("dir");

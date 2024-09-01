@@ -7,7 +7,7 @@
 #include "Vio/Initialize/Imu/Imu.h"
 #include "Vio/Initialize/InitTypes.hpp"
 
-namespace inslam {
+namespace hybrid_msckf {
 class ImuCalibration {
 public:
     ImuCalibration(MapPtr map, double angularResolution) : map_(map) {
@@ -93,5 +93,5 @@ private:
     MapPtr map_;
 };
 
-}  // namespace inslam
+}  // namespace hybrid_msckf
 #endif
