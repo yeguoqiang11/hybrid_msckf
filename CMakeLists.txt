@@ -1,54 +1,82 @@
 cmake_minimum_required(VERSION 3.10)
-project(hybrid_msckf)
+project(src)
 
-set(CMAKE_CONFIGURATION_TYPES Release RelWithDebInfo CACHE STRING INTERNAL FORCE)
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(INCLUDE_SRC 
+    ../include/Vio/DearSystem.hpp
+)
 
-#platform: WIN32 OSX IOS ANDROID LINUX TEGRA
-if (APPLE AND (NOT IOS))
-    set(OSX ON)
-elseif (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-    if (${CMAKE_SYSTEM_PROCESSOR} MATCHES "^aarch64")
-	    set(TEGRA ON) 
-    else ()
-        set(LINUX ON)
-    endif ()
-endif ()
+set(UTILS_SRC
+    Utils/json.hpp
+    Utils/MathUtil.cc
+    Utils/MathUtil.h
+    Utils/DataIOUtil.cc
+    Utils/DataIOUtil.h
+)
 
-if(WIN32)
-    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /WX ")
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} /WX ")
-else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror ")
-endif()
+file(GLOB VIO_INIT_SRC
+        Vio/Initialize/FrameHandler.cpp
+        Vio/Initialize/FrameHandler.hpp
+        Vio/Initialize/InitTypes.cpp
+        Vio/Initialize/InitTypes.hpp
+        Vio/Initialize/StereoDepthCost.hpp
+        Vio/Initialize/Initializer.cpp
+        Vio/Initialize/Initializer.hpp
+        Vio/Initialize/Optimization.cpp
+        Vio/Initialize/Optimization.hpp
+        Vio/Initialize/Utils/EssentialRansac.cc
+        Vio/Initialize/Utils/EssentialRansac.h
+        Vio/Initialize/Utils/PoseInitialization.cc
+        Vio/Initialize/Utils/PoseInitialization.h
+        Vio/Initialize/Utils/Triangulation.cc
+        Vio/Initialize/Utils/Triangulation.h
+        Vio/Initialize/Utils/epnp.cc
+        Vio/Initialize/Utils/epnp.h
+        Vio/Initialize/Imu/CamCost.h
+        Vio/Initialize/Imu/Imu.cc
+        Vio/Initialize/Imu/Imu.h
+        Vio/Initialize/Imu/ImuAligment.cc
+        Vio/Initialize/Imu/ImuAligment.h
+        Vio/Initialize/Imu/ImuCostFunction.h
+        Vio/Initialize/Imu/ImuCalibration.cc
+        Vio/Initialize/Imu/ImuCalibration.h
+        Vio/Initialize/Imu/AttitudeFilter.cc
+        Vio/Initialize/Imu/AttitudeFilter.h
+)
 
-include("cmake/utils.cmake")
+set(VIO_SRC 
+    Vio/Caimura.cpp
+    Vio/Caimura.hpp
+    Vio/DearSystem.cpp
+    Vio/FeatureObservation.h
+    Vio/ImageProcessor.cpp
+    Vio/ImageProcessor.h
+    Vio/Insfeature.hpp
+    Vio/Triangulator.cpp
+    Vio/Triangulator.h
+    ${VIO_INIT_SRC}
+    Vio/HybridSlam.cc
+    Vio/HybridSlam.h    
+)
 
-#options
-option(WITH_SAMPLES "build with samples" ON)
+set(ALL_SRC 
+    ${INCLUDE_SRC}
+    ${UTILS_SRC} 
+    ${VIO_SRC} 
+    )
+source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${ALL_SRC})
 
-#dependencies
-add_subdirectory(dependencies)
-list(APPEND CMAKE_PREFIX_PATH ${DEP_CMAKE_CONFIG_DIR})
-message(STATUS "prefix path:${CMAKE_PREFIX_PATH}")
-set(OpenCV_DIR "/home/insta360/InstallFold/opencv-4.1.0/build")
-find_package(OpenCV 4 REQUIRED)
-find_package(Eigen3 REQUIRED)
-find_package(Ceres REQUIRED)
-find_package(Pangolin REQUIRED)
+add_library(featslamSTATIC ${ALL_SRC})
 
-#src
-add_subdirectory_with_folder("hybrid_msckf" src)
+set(FEATSLAM_INC 
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/../include 
+)
 
-#samples
-if (WITH_SAMPLES)
-	add_subdirectory_with_folder("samples" samples)
-endif ()
+target_include_directories(featslamPUBLIC 
+    "$<BUILD_INTERFACE:${FEATSLAM_INC}>"
+    "$<INSTALL_INTERFACE:include>"
+)
 
-#install
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/CHANGELOG.md DESTINATION .)
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include DESTINATION .)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/docs/release_readme.md DESTINATION . RENAME README.md)
+target_include_directories(featslamPRIVATE ${OpenCV_INCLUDE_DIRS} ${CERES_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIR})
+target_link_libraries(featslamPRIVATE ${OpenCV_LIBS} ${CERES_LIBRARIES})
+
